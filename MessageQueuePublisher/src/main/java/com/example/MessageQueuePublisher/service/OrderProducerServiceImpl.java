@@ -1,7 +1,6 @@
 package com.example.MessageQueuePublisher.service;
 
-import com.example.MessageQueuePublisher.entity.Order;
-import com.example.MessageQueuePublisher.entity.User;
+import com.example.MessageQueuePublisher.dto.OrderDto;
 import com.example.MessageQueuePublisher.util.MessageSender;
 import com.example.MessageQueuePublisher.util.MessageUtil;
 import org.springframework.amqp.core.*;
@@ -44,9 +43,9 @@ public class OrderProducerServiceImpl implements OrderProducerService {
         amqpAdmin.declareBinding(new Binding(queue_name, Binding.DestinationType.QUEUE, exchange, "", null));
     }
 
-    public void sendMessage(Order order) {
+    public void sendMessage(OrderDto orderDto) {
         rabbitmqInit();
         messageSender = new MessageSender(amqpAdmin, rabbitTemplate);
-        messageSender.sendMessage(exchange, "", order);
+        messageSender.sendMessage(exchange, "", orderDto);
     }
 }

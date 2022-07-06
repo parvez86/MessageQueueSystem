@@ -1,7 +1,7 @@
 package com.example.MessageQueuePublisher.service;
 
-import com.example.MessageQueuePublisher.entity.User;
+import com.example.MessageQueuePublisher.dto.UserDto;
 
 public interface UserProducerService {
-    void sendMessage(User user);
+    void sendMessage(UserDto userDto);
 }

@@ -1,6 +1,6 @@
 package com.example.MessageQueueConsumer.controller;
 
-import com.example.MessageQueueConsumer.dto.Order;
+import com.example.MessageQueueConsumer.dto.OrderDto;
 import com.example.MessageQueueConsumer.service.OrderServiceImpl;
 import com.example.MessageQueueConsumer.util.MessageUtil;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -21,7 +21,7 @@ public class OrderController {
 
     @PostMapping("/save")
     @RabbitListener(queues = MessageUtil.ORDER_QUEUE)
-    public void saveOrder(@Valid @RequestBody Order order){
-        orderService.saveOrder(order);
+    public void saveOrder(@Valid @RequestBody OrderDto orderDto){
+        orderService.saveOrder(orderDto);
     }
 }

@@ -1,7 +1,6 @@
-package com.example.MessageQueuePublisher.entity;
+package com.example.MessageQueuePublisher.dto;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
@@ -9,7 +8,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class User implements Serializable {
+public class UserDto implements Serializable {
     private String userId;
     private String userName;
 }

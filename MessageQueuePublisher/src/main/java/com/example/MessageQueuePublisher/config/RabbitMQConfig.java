@@ -42,6 +42,7 @@ public class RabbitMQConfig {
     public FanoutExchange fanoutExchange() {
         return new FanoutExchange(order_exchange, true, false, null);
     }
+
     @Bean(name = "admin_connection_factory")
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory(host);
