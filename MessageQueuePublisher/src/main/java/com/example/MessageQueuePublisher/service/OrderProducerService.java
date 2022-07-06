@@ -1,8 +1,8 @@
 package com.example.MessageQueuePublisher.service;
 
 
-import com.example.MessageQueuePublisher.entity.Order;
+import com.example.MessageQueuePublisher.dto.OrderDto;
 
 public interface OrderProducerService {
-    void sendMessage(Order order);
+    void sendMessage(OrderDto orderDto);
 }

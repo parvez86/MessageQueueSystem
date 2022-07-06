@@ -1,7 +1,7 @@
 package com.example.MessageQueuePublisher.controller;
 
 
-import com.example.MessageQueuePublisher.entity.User;
+import com.example.MessageQueuePublisher.dto.UserDto;
 import com.example.MessageQueuePublisher.service.UserProducerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +24,9 @@ public class UserProducerController {
     private String response;
 
     @PostMapping("/produce")
-    public ResponseEntity<String> sendMessage(@RequestBody User user) {
-        userProducerService.sendMessage(user);
-        logger.info("user sent: " + user);
+    public ResponseEntity<String> sendMessage(@RequestBody UserDto userDto) {
+        userProducerService.sendMessage(userDto);
+        logger.info("user sent: " + userDto);
         return ResponseEntity.ok(response);
     }
 }

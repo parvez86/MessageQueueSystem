@@ -1,7 +1,5 @@
 package com.example.MessageQueueConsumer.config;
 
-import com.example.MessageQueueConsumer.util.MessageUtil;
-import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

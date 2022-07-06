@@ -1,4 +1,4 @@
-package com.example.MessageQueuePublisher.entity;
+package com.example.MessageQueuePublisher.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order implements Serializable {
+public class OrderDto implements Serializable {
     private String orderId;
     private String orderName;
 }

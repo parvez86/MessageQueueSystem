@@ -1,9 +1,7 @@
 package com.example.MessageQueuePublisher.controller;
 
-import com.example.MessageQueuePublisher.entity.Order;
-import com.example.MessageQueuePublisher.entity.User;
+import com.example.MessageQueuePublisher.dto.OrderDto;
 import com.example.MessageQueuePublisher.service.OrderProducerServiceImpl;
-import com.example.MessageQueuePublisher.service.UserProducerServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +23,9 @@ public class OrderProducerController {
     private String response;
 
     @PostMapping("/produce")
-    public ResponseEntity<String> sendMessage(@RequestBody Order order) {
-        orderProducerService.sendMessage(order);
-        logger.info("Order sent: " + order);
+    public ResponseEntity<String> sendMessage(@RequestBody OrderDto orderDto) {
+        orderProducerService.sendMessage(orderDto);
+        logger.info("Order sent: " + orderDto);
         return ResponseEntity.ok(response);
     }
 }

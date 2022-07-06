@@ -1,6 +1,7 @@
 package com.example.MessageQueueConsumer.service;
 
-import com.example.MessageQueueConsumer.dto.User;
+import com.example.MessageQueueConsumer.dto.UserDto;
+import com.example.MessageQueueConsumer.entity.User;
 import com.example.MessageQueueConsumer.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -17,9 +18,14 @@ public class UserServiceImpl implements UserService{
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    public void saveUser(User user) {
-        if(Objects.nonNull(user)) userRepository.save(user);
+    public void saveUser(UserDto userDto) {
+        if(Objects.nonNull(userDto)) {
+            User user = new User();
+            user.setUserId(userDto.getUserId());
+            user.setUserName(userDto.getUserName());
+            userRepository.save(user);
+        }
         System.out.println("User is successfully saved...");
-        System.out.println(user);
+        System.out.println(userDto);
     }
 }

@@ -1,6 +1,5 @@
-package com.example.MessageQueueConsumer.dto;
+package com.example.MessageQueueConsumer.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements Serializable {

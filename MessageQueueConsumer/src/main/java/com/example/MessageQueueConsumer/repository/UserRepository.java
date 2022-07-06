@@ -1,6 +1,6 @@
 package com.example.MessageQueueConsumer.repository;
 
-import com.example.MessageQueueConsumer.dto.User;
+import com.example.MessageQueueConsumer.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

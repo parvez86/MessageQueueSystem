@@ -1,6 +1,6 @@
 package com.example.MessageQueuePublisher.service;
 
-import com.example.MessageQueuePublisher.entity.User;
+import com.example.MessageQueuePublisher.dto.UserDto;
 import com.example.MessageQueuePublisher.util.MessageSender;
 import com.example.MessageQueuePublisher.util.MessageUtil;
 import org.springframework.amqp.core.*;
@@ -38,9 +38,9 @@ public class UserProducerServiceImpl implements UserProducerService{
 
     }
 
-    public void sendMessage(User user) {
+    public void sendMessage(UserDto userDto) {
         rabbitInit();
         messageSender = new MessageSender(amqpAdmin, rabbitTemplate);
-        messageSender.sendMessage(exchange, routing_key, user);
+        messageSender.sendMessage(exchange, routing_key, userDto);
     }
 }

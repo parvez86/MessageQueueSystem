@@ -1,6 +1,6 @@
 package com.example.MessageQueueConsumer.controller;
 
-import com.example.MessageQueueConsumer.dto.User;
+import com.example.MessageQueueConsumer.dto.UserDto;
 import com.example.MessageQueueConsumer.service.UserServiceImpl;
 import com.example.MessageQueueConsumer.util.MessageUtil;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -17,7 +17,7 @@ public class UserController {
 
     @PostMapping("/save")
     @RabbitListener(queues = MessageUtil.USER_QUEUE)
-    public void saveUser(@Valid @RequestBody User user){
-        userService.saveUser(user);
+    public void saveUser(@Valid @RequestBody UserDto userDto){
+        userService.saveUser(userDto);
     }
 }
