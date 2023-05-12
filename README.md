@@ -1,1 +1,3 @@
 # MessageQueueSystem
+A Spring Boot microservice application where publisher collect data or messages from Spring Boot API and pass those data to the different RabbitMQ queues with different types of exchange and routing key. The consumers receive the messages from the RabbitMQ respected queue and save those data to the database. </br></br>
+In this project the user data is collected using Spring Boot REST API and RabbitMQ publisher publishes user data in the RabbitMQ user queue with direct exchange. Similarly, order data is collected and publish it to the RabbitMQ order queue with fanout exchange. The user consumer and order consumer collect the data from the queue and save those in the database.
