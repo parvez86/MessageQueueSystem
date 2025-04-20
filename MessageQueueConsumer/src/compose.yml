@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: 'postgres:17-alpine'
+    environment:
+      - 'POSTGRES_DB=messagequeue'
+      - 'POSTGRES_PASSWORD=12345sp'
+      - 'POSTGRES_USER=test'
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test -d messagequeue"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: 'rabbitmq:management'
+    environment:
+      - 'RABBITMQ_DEFAULT_USER=admin'
+      - 'RABBITMQ_DEFAULT_PASS=password'
+    ports:
+      - '5672:5672'   # AMQP port
+      - '15672:15672' # Management UI port
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+volumes:
+  postgres-data:
+  rabbitmq-data:

@@ -3,14 +3,13 @@ package com.example.MessageQueuePublisher.service;
 import com.example.MessageQueuePublisher.dto.OrderDto;
 import com.example.MessageQueuePublisher.util.MessageSender;
 import com.example.MessageQueuePublisher.util.MessageUtil;
+import jakarta.annotation.PostConstruct;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 @Configuration
 @Service
